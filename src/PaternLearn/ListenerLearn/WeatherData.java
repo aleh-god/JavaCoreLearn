@@ -14,6 +14,7 @@ public class WeatherData implements Subject {
 
     @Override
     public void addObserver(Observer o) {
+        System.out.println("Наблюдатель добавлен.");
         observers.add(o);
     }
 
@@ -40,9 +41,11 @@ public class WeatherData implements Subject {
         notifyObserver();
     }
 
+    // Сюда придут данные с основного кода
     public void setMeasurement (float temp, float pressure, float humidity) {
         this.temp = temp;
         this.pressure = pressure;
         this.humidity = humidity;
+        measurementChanged();
     }
 }
