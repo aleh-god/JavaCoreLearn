@@ -6,7 +6,10 @@ abstract class Human {
 }
 
 class Man extends Human {
-    WorkBehavior workBehavior;
+    Work workBehavior;
+
+    void display() {
+    }
 
     public String playWork() {
         workBehavior = new WorkBehavior();
@@ -15,7 +18,7 @@ class Man extends Human {
 }
 
 class Woman extends Human {
-    RelaxBehavior relaxBehavior;
+    Relax relaxBehavior;
     public void playRelax() {
         relaxBehavior = new RelaxBehavior();
         relaxBehavior.relax();
