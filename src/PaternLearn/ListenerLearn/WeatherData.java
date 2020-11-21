@@ -36,16 +36,18 @@ public class WeatherData implements Subject {
         }
     }
 
-    public void measurementChanged() {
-        // Когда изменяются данные, запускаем оповещение
-        notifyObserver();
-    }
-
     // Сюда придут данные с основного кода
     public void setMeasurement (float temp, float pressure, float humidity) {
         this.temp = temp;
         this.pressure = pressure;
         this.humidity = humidity;
         measurementChanged();
+    }
+
+    public void measurementChanged() {
+        // Сюда можно поставить разные условия оповещений, в зависимости от изменений данных.
+
+        // Когда изменяются данные (и выполняются условия и флаги), запускаем оповещение
+        notifyObserver();
     }
 }

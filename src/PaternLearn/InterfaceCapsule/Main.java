@@ -5,7 +5,7 @@ public class Main {
         Man stan = new Man("Stan");
         System.out.println(stan.nameMan + " output: " + stan.playWork());
         Woman lena = new Woman("Lena");
-        System.out.println(lena.womanName + " say: ");
+        System.out.print(lena.womanName + " say: ");
         lena.playRelax();
         stan.setWorkBehavior(new NoWorkBehavior());
         System.out.println(stan.nameMan + " new output: " + stan.playWork());
