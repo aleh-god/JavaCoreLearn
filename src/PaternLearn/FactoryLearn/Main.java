@@ -3,16 +3,15 @@ package PaternLearn.FactoryLearn;
 public class Main {
     public static void main(String[] agrs) {
         // Создаем фабрики создания героев - их здесь две.
-        Dangeon town = new Town();
-        Dangeon forest = new Forest();
+        Dangeon factory = new Town();
 
         // Ссылка общая на все объекты, а сам объект создает общий метод orderHeroes по заданному параметру
-        Heroes heroes = town.orderHeroes("Воин");
+        Heroes heroes = factory.orderHeroes("Воин");
         System.out.println("Создаем героя: " + heroes.getName() + " Какой он красавчик!");
 
-        heroes = forest.orderHeroes("Воришка");
+        factory = new Forest();
+
+        heroes = factory.orderHeroes("Воришка");
         System.out.println("Создаем героя: " + heroes.getName() + " Лучший всех!");
-
-
     }
 }
