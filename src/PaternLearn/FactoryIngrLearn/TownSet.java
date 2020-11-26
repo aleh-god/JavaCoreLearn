@@ -1,10 +1,9 @@
 package PaternLearn.FactoryIngrLearn;
 
 public class TownSet implements Items{
+
     @Override
-    public Helmet putHelmet() {
-        return new FullHelmet();
-    }
+    public Helmet putHelmet() { return new FullHelmet(); }
 
     @Override
     public Armor putArmor() {

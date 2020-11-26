@@ -9,6 +9,7 @@ public class Warrior extends Heroes{
 
     @Override
     void born() {
+        name = "Kohan";
         System.out.println("Рождение героя по имени: " + name);
         helmet = itemSet.putHelmet();
         armor = itemSet.putArmor();

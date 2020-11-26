@@ -21,14 +21,14 @@ public abstract class Heroes {
     }
 
     void travel() {
-        System.out.println("Герой путешествует.");
+        System.out.println(this.name + " путешествует.");
     }
 
     void fight() {
-        System.out.println("Герой сражается.");
+        System.out.println(this.name + " сражается.");
     }
 
     void relax() {
-        System.out.println("Герой отдыхает.");
+        System.out.println(this.getName() + " отдыхает.");
     }
 }

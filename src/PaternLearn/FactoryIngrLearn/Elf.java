@@ -9,6 +9,7 @@ public class Elf extends Heroes{
 
     @Override
     void born() {
+        name = "Gendalf";
         System.out.println("Рождение героя по имени: " + name);
         helmet = itemSet.putHelmet();
         armor = itemSet.putArmor();
