@@ -25,6 +25,9 @@ public class main {
                 .optFieldFour(9)
                 .build(); // В завершение, вызывается метод build() для генерации объекта, который будет являться неизменным.
 
+        Singleton2 singleton2 = Singleton2.getInstance();
+        singleton2.someMethod();
+
         // Исключения
     /*
     try {
