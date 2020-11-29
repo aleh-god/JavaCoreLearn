@@ -3,6 +3,8 @@ package PaternLearn.CommandLearn;
 public class RemoteControl {
     Command[] onCommands;
     Command[] offCommands;
+    //Мы добавим новую переменную экземпляра для отслеживания последней команды. Далее при нажатии кнопки отмены мы обращаемся к этой команде и вызываем ее метод undo().
+    Command undoCommand;
 
     public RemoteControl() {
 
@@ -16,6 +18,8 @@ public class RemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        //В переменную undoCommand изначально также заносится объект NoCommand, чтобы при нажатии кнопки отмены ранее любых других кнопок ничего не происходило.
+        undoCommand = noCommand;
     }
 
     //Метод setCommand() получает ячейку и команды включения/выключения для этой ячейки.
@@ -27,13 +31,22 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot) {
         onCommands[slot].execute();
+        //Сохраняем выполняемую команду, если надо будет потом отменить
+        undoCommand = onCommands[slot];
     }
     public void offButtonWasPushed(int slot) {
         offCommands[slot].execute();
+        undoCommand = onCommands[slot];
     }
 
-    //Переопределенный метод toString() выводит все ячейки с соответствующими командами.
-    // Мы воспользуемся им при тестировании пульта.
+    //При нажатии кнопки отмены мы вызываем метод undo() команды, хранящейся в переменной undoCommand.
+    //Вызов отменяет операцию последней выполненной команды.
+    public void undoButtonWasPushed() {
+        undoCommand.undo();
+    }
+
+    // Переопределенный метод toString() для объекта remoteControl и метода System.out.println
+    // Выводит все ячейки с соответствующими командами. Мы воспользуемся им при тестировании пульта.
     public String toString() {
         StringBuffer stringBuff = new StringBuffer();
         stringBuff.append("\n------ Remote Control -------\n");

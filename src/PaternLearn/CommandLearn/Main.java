@@ -45,6 +45,10 @@ public class Main {
         // Создание команд для вентиляции
         CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
         CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+        CeilingFanLowCommand ceilingFanLowCommand = new CeilingFanLowCommand(ceilingFan);
+        CeilingFanHighCommand ceilingFanHighCommand = new CeilingFanHighCommand(ceilingFan);
+
         // Создание команд для гаража
         GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
         GarageDoorDownCommand garageDoorDown = new GarageDoorDownCommand(garageDoor);
@@ -56,24 +60,53 @@ public class Main {
         // Команды сохраняются в массивах для последующего использования.
         remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
         remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
-        remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
+        remoteControl.setCommand(2, garageDoorUp, garageDoorDown);
         remoteControl.setCommand(3, stereoOnWithCD, stereoOff);
-        remoteControl.setCommand(4, garageDoorUp, garageDoorDown);
+        remoteControl.setCommand(4, ceilingFanOn, ceilingFanOff);
+        remoteControl.setCommand(5, ceilingFanLowCommand, ceilingFanHighCommand);
 
-        //Метод toString() выводит список ячеек и связанных с ними команд.
+        //Переписанный вручную метод toString() преобразует объект в строку, как нам удобно
+        // Выводит список ячеек и связанных с ними команд.
         System.out.println(remoteControl);
 
         //Пульт готов к проверке!
         //Перебираем все ячейки, и для каждой ячейки имитируем нажатие кнопок «вкл» и «выкл».
         remoteControl.onButtonWasPushed(0);
         remoteControl.offButtonWasPushed(0);
+
         remoteControl.onButtonWasPushed(1);
-        remoteControl.offButtonWasPushed(1);
+        remoteControl.undoButtonWasPushed(); // Используем кнопку Отмена
+
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
+
+        System.out.println("");
+        System.out.println("Включаем вентилятор");
         remoteControl.onButtonWasPushed(4);
+
+        System.out.println("Добавляем скорость");
+        remoteControl.offButtonWasPushed(5);
+        remoteControl.offButtonWasPushed(5);
+
+        System.out.println("Используем кнопку Отмена");
+        remoteControl.undoButtonWasPushed(); // Используем кнопку Отмена
+
+        System.out.println("Выключаем вентилятор");
         remoteControl.offButtonWasPushed(4);
+
+        System.out.println("Включаем на старой скорости");
+        remoteControl.onButtonWasPushed(4);
+
+        System.out.println("Уменьшаем скорость");
+        remoteControl.onButtonWasPushed(5);
+        remoteControl.onButtonWasPushed(5);
+
+        System.out.println("Используем кнопку Отмена");
+        remoteControl.undoButtonWasPushed(); // Используем кнопку Отмена
+
+        System.out.println(remoteControl);
     }
 }
