@@ -5,6 +5,7 @@ public class LambdaAppType {
 
     public static void main(String[] args) {
 
+                                    //Тело метода ФИ
         Operat<Integer> operation1 = (x, y)-> x + y;
         Operat<String> operation2 = (x, y) -> x + y;
 
@@ -15,5 +16,6 @@ public class LambdaAppType {
 
 //нам надо типизировать объект интерфейса определенным типом, который потом будет применяться в лямбда-выражении.
 interface Operat<T>{
+    //Сигнатура метода ФИ
     T calculate(T x, T y);
 }

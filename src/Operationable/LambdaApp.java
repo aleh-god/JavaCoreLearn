@@ -10,6 +10,7 @@ public class LambdaApp {
     int n = 70;
     public static void main(String[] args) {
 
+                    //Тело метода ФИ (Здесь в блоке {})
         Operation op = ()->{
 
             //n=100; - так нельзя сделать
@@ -26,5 +27,6 @@ public class LambdaApp {
     }
 }
 interface Operation{
+    //Сигнатура метода ФИ
     int calculate();
 }

@@ -2,14 +2,17 @@ package Operationable;
 
 //терминальные лямбды, которые не возвращают никакого значения
 interface Printable{
-    void print(String s);
+    //Сигнатура метода ФИ
+    void print(String s , boolean x);
 }
 
 public class LambdaAppPrintable {
 
     public static void main(String[] args) {
 
-        Printable printer = s->System.out.println(s);
-        printer.print("терминальные лямбды, которые не возвращают никакого значения");
+        //Создаме ссылку на ФИ, создавать объект не нужно
+                                        // Тело метода ФИ
+        Printable printer = (s , x) -> System.out.println(s + x);
+        printer.print("терминальные лямбды, которые не возвращают никакого значения " , true);
     }
 }
