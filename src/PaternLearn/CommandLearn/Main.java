@@ -65,12 +65,13 @@ public class Main {
         remoteControl.setCommand(4, ceilingFanOn, ceilingFanOff);
         remoteControl.setCommand(5, ceilingFanLowCommand, ceilingFanHighCommand);
 
-        //Переписанный вручную метод toString() преобразует объект в строку, как нам удобно
-        // Выводит список ячеек и связанных с ними команд.
+        //Переписанный вручную (переопределенный) метод toString() преобразует объект в строку, как нам удобно
+        System.out.println("\nСписок ячеек и связанных с ними команд:");
         System.out.println(remoteControl);
 
         //Пульт готов к проверке!
         //Перебираем все ячейки, и для каждой ячейки имитируем нажатие кнопок «вкл» и «выкл».
+        System.out.println("\nПроверяем выполнение простых команд:");
         remoteControl.onButtonWasPushed(0);
         remoteControl.offButtonWasPushed(0);
 
@@ -83,7 +84,7 @@ public class Main {
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
 
-        System.out.println("");
+        System.out.println("\nЗадаем сложное управление вентилятором:");
         System.out.println("Включаем вентилятор");
         remoteControl.onButtonWasPushed(4);
 
@@ -106,6 +107,23 @@ public class Main {
 
         System.out.println("Используем кнопку Отмена");
         remoteControl.undoButtonWasPushed(); // Используем кнопку Отмена
+
+        //
+        System.out.println("\nИспользуем макро-команды:");
+        Command[] macroON = {livingRoomLightOn , kitchenLightOn , ceilingFanOn};
+        Command[] macroOff = {livingRoomLightOff , kitchenLightOff , ceilingFanOff};
+
+        MacroCommand houseOn = new MacroCommand(macroON);
+        MacroCommand houseOff = new MacroCommand(macroOff);
+
+        remoteControl.setCommand(6 , houseOn , houseOff);
+
+        System.out.println("Хозяин приехал домой. Встречаем!");
+        remoteControl.onButtonWasPushed(6);
+
+        System.out.println("Хозяин покидает дом. Досвидания!");
+        remoteControl.offButtonWasPushed(6);
+
 
         System.out.println(remoteControl);
     }
