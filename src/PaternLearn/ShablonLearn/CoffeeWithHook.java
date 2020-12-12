@@ -28,6 +28,7 @@ public class CoffeeWithHook extends CaffeineBeverage {
             return false;
         }
     }
+
     private String getUserInput() {
         String answer = null;
         System.out.print("“Would you like milk and sugar with your coffee (y/n)? “");
