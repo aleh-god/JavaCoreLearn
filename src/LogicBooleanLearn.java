@@ -1,4 +1,3 @@
-package Java;
 
 public class LogicBooleanLearn {
     public static void main(String[] agrs) {

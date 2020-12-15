@@ -37,6 +37,7 @@ public class MenuItem extends MenuComponent {
         return vegetarian;
     }
 
+    //Листку-Пункту меню не нужен итератор для погружения. Он возвращает нулевой итератор.
     public Iterator<MenuComponent> createIterator() {
         return new NullIterator();
     }

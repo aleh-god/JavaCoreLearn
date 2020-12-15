@@ -1,4 +1,4 @@
-package Java.Thread;
+package Thread;
 
 class Loader extends Thread {
     // Наследуем класс и переопределяем поток run, наполняя его функциональностью потока.
