@@ -5,6 +5,7 @@ public class GumballMachine {
     State soldOutState;
     State noQuarterState;
     State hasQuarterState;
+    State winnerState; //Добавляем новый режим
     State soldState;
     State state = soldOutState;
     int count = 0;
@@ -15,6 +16,7 @@ public class GumballMachine {
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);
         soldState = new SoldState(this);
+        winnerState = new WinnerState(this);
         this.count = numberGumballs;
 
         //Если количество шариков >0, устанавливается состояние NoQuarterState;
@@ -71,8 +73,24 @@ public class GumballMachine {
         return soldState;
     }
 
+    public State getWinnerState() {
+        return winnerState;
+    }
+
+    //Количество шариков
     public int getCount() {
         return this.count;
     }
 
+    //Загрузка автомата
+    public void refill(int numberGumballs) {
+        //Если количество шариков >0, устанавливается состояние NoQuarterState;
+        //в противном случае начинаем в состоянии SoldOutState.
+        if (numberGumballs > 0) {
+            this.count = numberGumballs;
+            state = noQuarterState;
+        } else {
+            state = soldOutState;
+        }
+    }
 }
