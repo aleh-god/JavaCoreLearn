@@ -1,11 +1,11 @@
-package Java.ObjectOIStream;
+package InputOutputLearn.ObjectOIStream;
 
 import java.io.*;
 import java.util.ArrayList;
 //Сериализация представляет процесс записи состояния объекта в поток, соответственно процесс извлечения или
 //восстановления состояния объекта из потока называется десериализацией.
 //Сразу надо сказать, что сериализовать можно только те объекты, которые реализуют интерфейс Serializable.
-
+//Для сериализации объектов в поток используется класс ObjectOutputStream. Он записывает данные в поток.
 public class main {
     public static void main(String[] args) {
 
@@ -47,6 +47,8 @@ public class main {
 }
 
 class Person implements Serializable{
+    // У каждого класса, реализующего Serializable, должно быть поле, содержащее уникальный идентификатор версии сериализованного класса, оно объявляется следующим образом:
+    private static final long serialVersionUID = 1L;
 
     //По умолчанию сериализуются все переменные объекта.
     //Однако, возможно, мы хотим, чтобы некоторые поля были исключены из сериализации.
@@ -54,7 +56,7 @@ class Person implements Serializable{
     private String name;
     private int age;
     private double height;
-    private boolean married;
+    private transient boolean married;
 
     Person(String n, int a, double h, boolean m){
 

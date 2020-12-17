@@ -1,4 +1,4 @@
-package Java.PrintWriteStream;
+package InputOutputLearn.PrintWriteStream;
 /*
 Форматируемый ввод и вывод!
 Класс PrintStream - это именно тот класс, который используется для вывода на консоль.

@@ -1,4 +1,4 @@
-package Java.ByteArrayIOStream;
+package InputOutputLearn.ByteArrayIOStream;
 /*
 Класс ByteArrayInputStream представляет входной поток, использующий в качестве источника данных массив байтов.
 Он имеет следующие конструкторы:

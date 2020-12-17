@@ -1,4 +1,4 @@
-package Java.BufferedWriterReaderLearn;
+package InputOutputLearn.BufferedWriterReaderLearn;
 
 import java.io.*;
 

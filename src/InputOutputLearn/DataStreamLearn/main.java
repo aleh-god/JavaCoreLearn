@@ -1,4 +1,4 @@
-package Java.DataStreamLearn;
+package InputOutputLearn.DataStreamLearn;
 
 //Классы DataOutputStream и DataInputStream позволяют записывать и считывать данные примитивных типов,
 //таких, как int, double и т.д. Для записи и чтения каждого из примитивных типов предназначен свой метод.
