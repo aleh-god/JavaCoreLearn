@@ -1,12 +1,12 @@
-package Java.Thread;
+package Java.Thread.WaitAndCondition;
 
 public class AppWaitNotify {
 
         public static void main(String[] args) {
 
-            Store store=new Store();
-            Producer producer = new Producer(store);
-            Consumer consumer = new Consumer(store);
+            StoreWait store= new StoreWait();
+            ProducerWait producer = new ProducerWait(store);
+            ConsumerWait consumer = new ConsumerWait(store);
             new Thread(producer).start();
             new Thread(consumer).start();
         }
@@ -19,7 +19,7 @@ public class AppWaitNotify {
  */
 
 // Класс Магазин, хранящий произведенные товары
-    class Store{
+    class StoreWait{
 
         private int product=0;
 
@@ -64,11 +64,11 @@ public class AppWaitNotify {
 
     // класс Производитель
     // Производитель в методе run() добавляет в объект Store с помощью его метода put() 6 товаров.
-    class Producer implements Runnable{
+    class ProducerWait implements Runnable{
 
-        Store store;
+        StoreWait store;
 
-        Producer(Store store){
+        ProducerWait(StoreWait store){
             this.store=store;
         }
 
@@ -81,11 +81,11 @@ public class AppWaitNotify {
 
     // Класс Потребитель
     // Потребитель в методе run() в цикле обращается к методу get объекта Store для получения этих товаров.
-    class Consumer implements Runnable{
+    class ConsumerWait implements Runnable{
 
-        Store store;
+        StoreWait store;
 
-        Consumer(Store store){
+        ConsumerWait(StoreWait store){
             this.store=store;
         }
 

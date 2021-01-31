@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 // функциональный интерфейс
 interface ExpressionMet{

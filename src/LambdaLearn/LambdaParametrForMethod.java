@@ -1,4 +1,4 @@
-package LambdaTest;
+package LambdaLearn;
 
 public class LambdaParametrForMethod {
     public static void main(String[] args) {

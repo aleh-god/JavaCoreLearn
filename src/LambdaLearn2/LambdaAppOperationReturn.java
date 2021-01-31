@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 //Также метод в Java может возвращать лямбда-выражение
 interface OperationReturn{

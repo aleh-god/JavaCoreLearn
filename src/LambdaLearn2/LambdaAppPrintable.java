@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 //терминальные лямбды, которые не возвращают никакого значения
 interface Printable{

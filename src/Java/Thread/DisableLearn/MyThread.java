@@ -16,6 +16,13 @@ class MyThread implements Runnable {
 
         System.out.printf("%s started... \n", Thread.currentThread().getName());
         int counter=1; // счетчик циклов
+
+        /**
+         * Почему используется связка - while + wait, а не if + wait?
+         * в редких случаях тред может быть разбужен ложно, без вызова notify(), interrupt() или окончания таймаута,
+         * поэтому следует перед продолжением выполнения еще раз проверить условие, по которому был вызван wait().
+         */
+
         while(isActive){ //Переменная isActive указывает на активность потока.
             System.out.println("Loop " + counter++);
             try{

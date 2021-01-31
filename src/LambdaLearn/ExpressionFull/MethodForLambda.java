@@ -1,4 +1,4 @@
-package LambdaTest.ExpressionFull;
+package LambdaLearn.ExpressionFull;
 
 // функциональный интерфейс
 interface Expression{

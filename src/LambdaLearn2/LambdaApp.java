@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 //пример - использования переменных уровня класса
 public class LambdaApp {

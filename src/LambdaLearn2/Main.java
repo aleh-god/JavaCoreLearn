@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 public class Main {
     public static void main(String[] args) {

@@ -36,6 +36,7 @@ public class AppInterrupt {
         t.start();
         try{
             Thread.sleep(150);
+
             t.interrupt();
 
             Thread.sleep(150);

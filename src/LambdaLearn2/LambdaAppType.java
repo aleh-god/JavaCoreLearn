@@ -1,4 +1,4 @@
-package Operationable;
+package LambdaLearn2;
 
 //Функциональный интерфейс может быть обобщенным, однако в лямбда-выражении использование обобщений не допускается.
 public class LambdaAppType {

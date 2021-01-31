@@ -1,4 +1,4 @@
-package CollectionTest;
+package CollectionsAllLearn;
 import java.util.LinkedList;
 
 public class LinkedListTest {
