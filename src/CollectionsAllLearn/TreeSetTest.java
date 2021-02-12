@@ -1,4 +1,4 @@
-package CollectionTest;
+package CollectionsAllLearn;
 
 import java.util.NavigableSet;
 import java.util.SortedSet;

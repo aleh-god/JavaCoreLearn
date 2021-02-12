@@ -158,6 +158,8 @@ public class main {
         //Возвращает представление (вид) части этого Map, ключи которой строго меньше, чем toKey.
         System.out.println("Части Map, ключи которой строго меньше, чем Заря: " + tm.headMap("Заря"));
 
+        //HashMap можно синхронизировать с помощью вызова такого метода:
+        //Map myMap = Collections.synchonizedMap(new hashMap);
 
 
         /* №	Методы и описание

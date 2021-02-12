@@ -5,6 +5,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.*;
 
+/**
+ * HashMap реализует интерфейс Map, который подразумевает хранение данных в виде пар ключ-значение.
+ * HashMap не является синхронизированным и потокобезопасным. Также HashMap допускает хранение null ключей и значений,
+ * но недопускает дублей ключей. Следует помнить, что для null-ключа hashCode() всегда равен нулю.
+ * HashMap можно синхронизировать с помощью вызова такого метода:
+ * Map myMap = Collections.synchonizedMap(new hashMap);
+ **/
+
 public class HashMapTest {
 
     public static void main(String[] args) {
