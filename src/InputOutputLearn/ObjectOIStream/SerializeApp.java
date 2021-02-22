@@ -6,10 +6,11 @@ import java.util.ArrayList;
 //восстановления состояния объекта из потока называется десериализацией.
 //Сразу надо сказать, что сериализовать можно только те объекты, которые реализуют интерфейс Serializable.
 //Для сериализации объектов в поток используется класс ObjectOutputStream. Он записывает данные в поток.
-public class main {
+public class SerializeApp {
     public static void main(String[] args) {
 
-        String filename = "people.dat";
+        // Java при сериализации объекта в файл установленным архитектурным требованием Java является присвоение файлу расширения .ser
+        String filename = "people.ser";
         // создадим список объектов, которые будем записывать
         ArrayList<Person> people = new ArrayList<Person>();
         people.add(new Person("Tom", 30, 175, false));
@@ -19,10 +20,10 @@ public class main {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename)))
         {
             oos.writeObject(people);
-            System.out.println("File has been written");
+            System.out.println("File has been written.");
         }
+        // public final void writeObject(Object x) throws IOException
         catch(Exception ex){
-
             System.out.println(ex.getMessage());
         }
 
@@ -36,9 +37,17 @@ public class main {
                         //Низведение к ArrayList
             newPeople=((ArrayList<Person>)ois.readObject());
         }
-        catch(Exception ex){
-
-            System.out.println(ex.getMessage());
+        // Блок попытка-перехват пытается перехватить исключение ClassNotFoundException (класс не найден исключение), описываемый методом readObject() (чтение Объекта()).
+        // Чтобы JVM могла провести десериализацию объекта, она должна найти байт-код для класса.
+        // Если JVM не может найти класс во время выполнения десериализации объекта, она генерирует исключение ClassNotFoundException.
+        // public final Object readObject() throws IOException, ClassNotFoundException
+        catch (IOException i) {
+            i.printStackTrace();
+            return;}
+        catch (ClassNotFoundException c) {
+        System.out.println("Класс Employee не найден");
+        c.printStackTrace();
+        return;
         }
 
         for(Person p : newPeople)
@@ -46,7 +55,8 @@ public class main {
     }
 }
 
-class Person implements Serializable{
+class Person implements Serializable{ // Класс должен реализовывать интерфейс java.io.Serializable.
+
     // У каждого класса, реализующего Serializable, должно быть поле, содержащее уникальный идентификатор версии сериализованного класса, оно объявляется следующим образом:
     private static final long serialVersionUID = 1L;
 
@@ -56,7 +66,7 @@ class Person implements Serializable{
     private String name;
     private int age;
     private double height;
-    private transient boolean married;
+    private transient boolean married; // исключен из сериализации
 
     Person(String n, int a, double h, boolean m){
 
