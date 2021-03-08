@@ -5,7 +5,7 @@ public class Main {
 
         WorkActivity work = new WorkActivity();
         RelaxActivity relax = new RelaxActivity();
-        System.out.println("" + relax.isInterface());
+        // System.out.println("" + relax.isInterface());
         Activity activity = new WorkActivity();
         Actor actor = new Actor("Robot", activity);
         actor.myAction();

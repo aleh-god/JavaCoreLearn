@@ -1,7 +1,7 @@
-package CollectionsAllLearn.ArraysLearn;
+package CollectionsAllLearn.ArrayMassLearn;
 import java.util.Arrays;
 
-public class main {
+public class AppArrayMass {
 
     // Сложить два массива
 

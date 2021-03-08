@@ -1,8 +1,8 @@
-package Java.ArrayTest;
+package CollectionsAllLearn.ArrayListLearn;
 
 import java.util.*;
 
-public class Main {
+public class AppArrayList {
     public static void main (String[] args) {
         ArrayList<String> colors = new ArrayList<String>();
         colors.add("Red"); // Добавить элемент в список

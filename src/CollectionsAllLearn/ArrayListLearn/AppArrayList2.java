@@ -1,8 +1,8 @@
-package CollectionsAllLearn;
+package CollectionsAllLearn.ArrayListLearn;
 
 import java.util.ArrayList;
 
-public class ArrayTest2 {
+public class AppArrayList2 {
     public static void main(String[] args) {
 
         ArrayList<String> people = new ArrayList<String>();
